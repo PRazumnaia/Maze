@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "maps.h"
 #include "time.h"
 #include <SFML/Graphics.hpp>
