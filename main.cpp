@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "maps.h"
 #include "time.h"
 #include <SFML/Graphics.hpp>
@@ -43,6 +42,11 @@ int main()
 	
     Clock clock;
     Clock gameTimeClock;
+    
+    Texture t;
+    t.loadFromFile("hero.png");
+
+    PLAYER p(t);
     
     CircleShape MyCircle(100.f);
     MyCircle.setFillColor(Color::Green);
