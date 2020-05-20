@@ -20,23 +20,31 @@ public:
   }
 };
 
-int main() {
-  RandomGeneration(7);
-  RenderWindow window(VideoMode(600, 600), "Test");
+int main()
+{
+    RandomGeneration(7);
+    RenderWindow window( VideoMode(600,600), "Test");
+    
+    Texture t;
+    t.loadFromFile("hero.png");
 
-  Texture t;
-  t.loadFromFile("hero.png");
+    PLAYER p(t);
+    
+    CircleShape MyCircle(100.f);
+    MyCircle.setFillColor(Color::Green);
 
-  PLAYER p(t);
-
-  CircleShape MyCircle(100.f);
-  MyCircle.setFillColor(Color::Green);
-
-  while (window.isOpen()) {
-    Event event;
-    while (window.pollEvent(event)) {
-      if (event.type == Event::Closed)
-        window.close();
+    while (window.isOpen())
+    {
+        Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == Event::Closed)
+                window.close();
+        }
+        window.clear();
+        window.clear(Color::White);
+        window.draw(p.sprite);
+        window.display();
     }
 
     window.clear();
