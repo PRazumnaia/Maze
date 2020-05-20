@@ -19,9 +19,9 @@ String TileMap[H] = {
     "W          WWWWWWWW    WWWW            W",
     "W          W           W  W            W",
     "W   WWWWWWWW           W  W            W",
-    "W                      WWWW            W",
+    "W    MMMM              WWWW            W",
     "W                                      W",
-    "W          WWWWWW                      W",
+    "W       M  WWWWWW                      W",
     "W          W                           W",
     "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwWW",
 

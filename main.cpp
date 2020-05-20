@@ -49,6 +49,8 @@ int main()
       for (int j = 0; j < W; j++) {
         if (TileMap[i][j] == 'W')
           rectangle.setFillColor(Color::Black);
+	if (TileMap[i][j] == 'M')
+		rectangle.setFillColor(Color::Yellow);
         if (TileMap[i][j] == ' ')
           continue;
 
