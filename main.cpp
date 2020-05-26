@@ -47,10 +47,14 @@ int main()
 	  RectangleShape rectangle(Vector2f(32, 32));
     for (int i = 0; i < H; i++)
       for (int j = 0; j < W; j++) {
-        if (TileMap[i][j] == 'W')
+        if (TileMap[i][j] == 'B')    //стена
           rectangle.setFillColor(Color::Black);
-	if (TileMap[i][j] == 'M')
+	if (TileMap[i][j] == 'Z')    //монетка первого типа
 		rectangle.setFillColor(Color::Yellow);
+	if (TileMap[i][j] == 'X')    //монетка второго типа
+                rectangle.setFillColor(Color::Green);
+	if (TileMap[i][j] == 'C')    //монетка третьего типа
+                rectangle.setFillColor(Color::Blue);
         if (TileMap[i][j] == ' ')
           continue;
 

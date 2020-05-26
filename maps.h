@@ -12,18 +12,18 @@ const int W = 40;
 
 String TileMap[H] = {
 
-    "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
-    "W          W                      W    W",
-    "W          W                           W",
-    "WWWWWWW    W                           W",
-    "W          WWWWWWWW    WWWW            W",
-    "W          W           W  W            W",
-    "W   WWWWWWWW           W  W            W",
-    "W    MMMM              WWWW            W",
-    "W                                      W",
-    "W       M  WWWWWW                      W",
-    "W          W                           W",
-    "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWwWW",
+    "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+    "B          B                      B    B",
+    "B          B                           B",
+    "BBBBBBB    B                           B",
+    "B     ZXC  BBBBBBBB    BBBB            B",
+    "B          B           B  B            B",
+    "B   BBBBBBBB           B  B            B",
+    "B    ZZZZ              BBBB            B",
+    "B                                      B",
+    "B       X  BBBBBB                      B",
+    "B          B                           B",
+    "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
 
 };
 
