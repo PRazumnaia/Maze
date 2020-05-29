@@ -3,6 +3,7 @@
 
 using namespace sf;
 
+
 class PLAYER {
 
 public:
@@ -35,6 +36,11 @@ int main()
 
     while (window.isOpen())
     {
+        float time = clock.getElapsedTime().asMicroseconds();
+        gameTime = gameTimeClock.getElapsedTime().asSeconds();
+        clock.restart();
+        time = time / 800;
+        
         Event event;
         while (window.pollEvent(event))
         {
