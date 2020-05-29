@@ -24,10 +24,45 @@ public:
   }
 };
 
+void menu(RenderWindow & window) {
+	Texture menuTexture1, menuTexture3;
+	menuTexture1.loadFromFile("1.jpg");
+	menuTexture3.loadFromFile("3.jpg");
+	Sprite menu1(menuTexture1), menu3(menuTexture3);
+	bool isMenu = 1;
+	int menuNum = 0;
+	menu1.setPosition(780, 300);
+	menu3.setPosition(850, 450);
+
+	while (isMenu)
+	{
+		menu1.setColor(Color::White);
+		menu3.setColor(Color::White);
+		menuNum = 0;
+		window.clear(Color(129, 181, 221));
+ 
+		if (IntRect(780, 300, 377, 90).contains(Mouse::getPosition(window))) { menu1.setColor(Color::Blue); menuNum = 1; }
+		if (IntRect(850, 450, 217, 80).contains(Mouse::getPosition(window))) { menu3.setColor(Color::Blue); menuNum = 3; }
+ 
+		if (Mouse::isButtonPressed(Mouse::Left))
+		{
+			if (menuNum == 1) isMenu = false;//если нажали первую кнопку, то выходим из меню 
+			if (menuNum == 3)  { window.close(); isMenu = false; }
+ 
+		}
+ 
+		window.draw(menu1);
+		window.draw(menu3);
+		
+		window.display();
+	}
+}
+
 int main()
 {
     RandomGeneration(7);
     RenderWindow window( VideoMode(1924,1080), "Test");
+    menu(window);
 
     Font font;
     font.loadFromFile("CyrilicOld.TTF");
