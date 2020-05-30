@@ -1,5 +1,7 @@
 #include "maps.h"
 #include <SFML/Graphics.hpp>
+#include <sstream>
+
 
 using namespace sf;
 
@@ -24,20 +26,30 @@ public:
 int main()
 {
     RandomGeneration(7);
-    RenderWindow window( VideoMode(600,600), "Test");
+    RenderWindow window( VideoMode(1924,1080), "Test");
+
+    Font font;
+    font.loadFromFile("CyrilicOld.TTF");
+    Text text("", font, 20);
+    text.setFillColor(Color::Red);
+    text.setStyle(sf::Text::Bold | sf::Text::Underlined);
     
     Texture t;
     t.loadFromFile("hero.png");
 
     PLAYER p(t);
+	
+    Clock clock;
+    Clock gameTimeClock;
     
     CircleShape MyCircle(100.f);
     MyCircle.setFillColor(Color::Green);
 
     while (window.isOpen())
     {
+        int gameTime = 50;
         float time = clock.getElapsedTime().asMicroseconds();
-        gameTime = gameTimeClock.getElapsedTime().asSeconds();
+        gameTime -= gameTimeClock.getElapsedTime().asSeconds();
         clock.restart();
         time = time / 800;
         
@@ -47,9 +59,16 @@ int main()
             if (event.type == Event::Closed)
                 window.close();
         }
+
+        std::ostringstream gameTimeString;    
+	    gameTimeString << gameTime;		
+		text.setString(L"Время игры: "+gameTimeString.str());
+		text.setPosition(200, 200);
+		
         window.clear();
         window.clear(Color::White);
         window.draw(p.sprite);
+        window.draw(text);//рисую этот текст
         window.display();
     }
 
