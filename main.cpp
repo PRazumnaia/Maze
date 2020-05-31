@@ -22,6 +22,7 @@ public:
 
 int main()
 {
+    RandomGeneration();
     RenderWindow window( VideoMode(600,600), "Test");
     
     Texture t;
