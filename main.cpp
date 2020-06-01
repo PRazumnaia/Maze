@@ -1,5 +1,5 @@
-#include <SFML/Graphics.hpp>
 #include "maps.h"
+#include <SFML/Graphics.hpp>
 
 using namespace sf;
 
@@ -20,51 +20,48 @@ public:
   }
 };
 
-int main()
-{
-    RandomGeneration(7);
-    RenderWindow window( VideoMode(600,600), "Test");
-    
-    Texture t;
-    t.loadFromFile("hero.png");
+int main() {
+  RandomGeneration(7);
+  RenderWindow window(VideoMode(600, 600), "Test");
 
-    PLAYER p(t);
-    
-    CircleShape MyCircle(100.f);
-    MyCircle.setFillColor(Color::Green);
+  Texture t;
+  t.loadFromFile("hero.png");
 
-    while (window.isOpen())
-    {
-        Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == Event::Closed)
-                window.close();
-	}
+  PLAYER p(t);
 
-	    window.clear();
-	    window.clear(Color::White);
+  CircleShape MyCircle(100.f);
+  MyCircle.setFillColor(Color::Green);
 
-	  RectangleShape rectangle(Vector2f(32, 32));
+  while (window.isOpen()) {
+    Event event;
+    while (window.pollEvent(event)) {
+      if (event.type == Event::Closed)
+        window.close();
+    }
+
+    window.clear();
+    window.clear(Color::White);
+
+    RectangleShape rectangle(Vector2f(32, 32));
     for (int i = 0; i < H; i++)
       for (int j = 0; j < W; j++) {
-        if (TileMap[i][j] == 'B')    //стена
+        if (TileMap[i][j] == 'B') //стена
           rectangle.setFillColor(Color::Black);
-	if (TileMap[i][j] == 'Z')    //монетка первого типа
-		rectangle.setFillColor(Color::Yellow);
-	if (TileMap[i][j] == 'X')    //монетка второго типа
-                rectangle.setFillColor(Color::Green);
-	if (TileMap[i][j] == 'C')    //монетка третьего типа
-                rectangle.setFillColor(Color::Blue);
+        if (TileMap[i][j] == 'Z') //монетка первого типа
+          rectangle.setFillColor(Color::Yellow);
+        if (TileMap[i][j] == 'X') //монетка второго типа
+          rectangle.setFillColor(Color::Green);
+        if (TileMap[i][j] == 'C') //монетка третьего типа
+          rectangle.setFillColor(Color::Blue);
         if (TileMap[i][j] == ' ')
           continue;
 
         rectangle.setPosition(j * 32 - offsetX, i * 32 - offsetY);
-	window.draw(rectangle);
+        window.draw(rectangle);
       }
-        window.draw(p.sprite);
-        window.display();
-    }
-    
-    return 0;
+    window.draw(p.sprite);
+    window.display();
+  }
+
+  return 0;
 }
