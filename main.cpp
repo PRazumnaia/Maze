@@ -22,7 +22,7 @@ public:
 
 int main()
 {
-    RandomGeneration();
+    RandomGeneration(7);
     RenderWindow window( VideoMode(600,600), "Test");
     
     Texture t;

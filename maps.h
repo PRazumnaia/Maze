@@ -28,12 +28,11 @@ String TileMap[H] = {
 
 };
 
-void RandomGeneration()
+void RandomGeneration(int items)
 {
 	int RandomX = 0;
 	int RandomY = 0;
 	srand(time(0)); 
-	int items = 5;
 	while (items > 0)
 	{
 		RandomX = 1 + rand() % (W-1);
