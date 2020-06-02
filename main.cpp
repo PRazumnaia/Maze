@@ -32,25 +32,25 @@ void menu(RenderWindow & window) {
 	int menuNum = 0;
 	menu1.setPosition(780, 300);
 	menu2.setPosition(850, 450);
- 
+
 	while (isMenu)
 	{
 		menu1.setColor(Color::White);
 		menu2.setColor(Color::White);
 		menuNum = 0;
 		window.clear(Color(129, 181, 221));
- 
+
 		if (IntRect(780, 300, 377, 90).contains(Mouse::getPosition(window))) { menu1.setColor(Color::Blue); menuNum = 1; }
 		if (IntRect(850, 450, 217, 80).contains(Mouse::getPosition(window))) { menu2.setColor(Color::Blue); menuNum = 2; }
- 
+
 		if (Mouse::isButtonPressed(Mouse::Left))
 		{
 			if (menuNum == 1) isMenu = false;
 			if (menuNum == 2)  { window.close(); isMenu = false; }
 		}
- 
+
 		window.draw(menu1);
-		window.draw(menu2);		
+		window.draw(menu2);
 		window.display();
 	}
 }
@@ -66,10 +66,10 @@ int main()
     Text text("", font, 20);
     text.setFillColor(Color::Red);
     text.setStyle(sf::Text::Bold | sf::Text::Underlined);
-	
+
     Clock clock;
     Clock gameTimeClock;
-    
+
     Texture t;
     t.loadFromFile("hero.png");
 
@@ -82,13 +82,34 @@ int main()
         second = gameTimeClock.getElapsedTime().asSeconds();
         clock.restart();
         time = time / 800;
-        
+
         Event event;
         while (window.pollEvent(event))
         {
             if (event.type == Event::Closed)
                 window.close();
         }
+
+    if (Keyboard::isKeyPressed(Keyboard::Left))
+        {
+            p.dx = -0.1;
+        }
+
+    if (Keyboard::isKeyPressed(Keyboard::Right))
+        {
+            p.dx = 0.1;
+        }
+
+    if (Keyboard::isKeyPressed(Keyboard::Up))
+        {
+            p.dy = -0.1;
+
+        }
+
+    if (Keyboard::isKeyPressed(Keyboard::Down))
+        {
+             p.dy = 0.1;
+        } 
 
     window.clear();
     window.clear(Color::White);
@@ -110,8 +131,8 @@ int main()
         rectangle.setPosition(j * 32 - offsetX, i * 32 - offsetY);
         window.draw(rectangle);
       }
-    std::ostringstream gameTimeString;    
-	gameTimeString << timer(gameTime, second);		
+    std::ostringstream gameTimeString;
+	gameTimeString << timer(gameTime, second);
 	text.setString(L"Время игры: "+gameTimeString.str());
 	text.setPosition(200, 200);
 
