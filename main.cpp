@@ -1,4 +1,5 @@
 #include "maps.h"
+#include "time.h"
 #include <SFML/Graphics.hpp>
 #include <sstream>
 
@@ -47,9 +48,9 @@ int main()
 
     while (window.isOpen())
     {
-        int gameTime = 50;
+        int gameTime = 50, second;
         float time = clock.getElapsedTime().asMicroseconds();
-        gameTime -= gameTimeClock.getElapsedTime().asSeconds();
+        second = gameTimeClock.getElapsedTime().asSeconds();
         clock.restart();
         time = time / 800;
         
@@ -59,18 +60,6 @@ int main()
             if (event.type == Event::Closed)
                 window.close();
         }
-
-        std::ostringstream gameTimeString;    
-	    gameTimeString << gameTime;		
-		text.setString(L"Время игры: "+gameTimeString.str());
-		text.setPosition(200, 200);
-		
-        window.clear();
-        window.clear(Color::White);
-        window.draw(p.sprite);
-        window.draw(text);//рисую этот текст
-        window.display();
-    }
 
     window.clear();
     window.clear(Color::White);
@@ -92,7 +81,13 @@ int main()
         rectangle.setPosition(j * 32 - offsetX, i * 32 - offsetY);
         window.draw(rectangle);
       }
+    std::ostringstream gameTimeString;    
+	gameTimeString << timer(gameTime, second);		
+	text.setString(L"Время игры: "+gameTimeString.str());
+	text.setPosition(200, 200);
+
     window.draw(p.sprite);
+    window.draw(text);
     window.display();
   }
 
