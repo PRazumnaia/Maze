@@ -28,7 +28,15 @@ public:
             rect.top += dy * time;
 	    Collision(1);
 
-            sprite.setPosition(rect.left - offsetX, rect.top - offsetY);
+    currentFrame += 0.005*time;
+    if (currentFrame>3) currentFrame -=3;
+
+    if (dy<0) sprite.setTextureRect(IntRect(2+32*int(currentFrame),4,29,29));
+    if (dy>0) sprite.setTextureRect(IntRect(2+32*int(currentFrame),68,29,29));
+    if (dx<0) sprite.setTextureRect(IntRect(2+32*int(currentFrame),36,29,29));
+    if (dx>0) sprite.setTextureRect(IntRect(2+32*int(currentFrame),100,29,29));
+
+    sprite.setPosition(rect.left - offsetX, rect.top - offsetY);
 
             dx = 0;
             dy = 0;
