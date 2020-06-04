@@ -81,7 +81,6 @@ public:
               score += 50;
               std::cout << score;
       }
-   }
      /* if (TileMap[i][j] == 'Z') {
 	      TileMap[i][j] = ' ';
 	      score += 10;
@@ -97,7 +96,6 @@ public:
               score += 50;
 	      std::cout << score;
       }*/
-};
 
 void menu(RenderWindow & window) {
 
