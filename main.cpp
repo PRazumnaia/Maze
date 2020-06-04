@@ -81,7 +81,7 @@ public:
               score += 50;
               std::cout << score;
       }
-       }
+   }
      /* if (TileMap[i][j] == 'Z') {
 	      TileMap[i][j] = ' ';
 	      score += 10;
@@ -97,30 +97,6 @@ public:
               score += 50;
 	      std::cout << score;
       }*/
-    }
-    
-    if (Keyboard::isKeyPressed(Keyboard::Left)) 
-        {
-            p.dx = -0.1;
-        }
-
-    if (Keyboard::isKeyPressed(Keyboard::Right)) 
-        {
-            p.dx = 0.1;
-        }
-
-    if (Keyboard::isKeyPressed(Keyboard::Up)) 
-        {
-            p.dy = -0.1;
-
-        }
-
-    if (Keyboard::isKeyPressed(Keyboard::Down)) 
-        {
-             p.dy = 0.1;
-        } 
-
-
 };
 
 void menu(RenderWindow & window) {
