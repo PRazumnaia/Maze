@@ -122,6 +122,8 @@ int main()
              p.dy = 0.1;
         }
 
+    p.update(time);
+
     window.clear();
     window.clear(Color::White);
 
