@@ -12,6 +12,7 @@ public:
   FloatRect rect;
   Sprite sprite;
   float currentFrame;
+  int score = 0;
 
   PLAYER(Texture &image) {
     sprite.setTexture(image);
@@ -65,7 +66,37 @@ public:
               dy = 0;
             }
         }
+	  if (TileMap[i][j] == 'Z') {
+              TileMap[i][j] = ' ';
+              score += 10;
+              std::cout << score;
+      }
+       if (TileMap[i][j] == 'X') {
+              TileMap[i][j] = ' ';
+              score += 25;
+              std::cout << score;
+      }
+        if (TileMap[i][j] == 'C') {
+              TileMap[i][j] = ' ';
+              score += 50;
+              std::cout << score;
+      }
        }
+     /* if (TileMap[i][j] == 'Z') {
+	      TileMap[i][j] = ' ';
+	      score += 10;
+	      std::cout << score;
+      }
+       if (TileMap[i][j] == 'X') {
+              TileMap[i][j] = ' ';
+              score += 25;
+	      std::cout << score;
+      }
+        if (TileMap[i][j] == 'C') {
+              TileMap[i][j] = ' ';
+              score += 50;
+	      std::cout << score;
+      }*/
     }
 
 
