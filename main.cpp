@@ -3,9 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <sstream>
 
-
 using namespace sf;
-
 
 class PLAYER {
 
@@ -76,9 +74,6 @@ int main()
     t.loadFromFile("hero.png");
 
     PLAYER p(t);
-    
-    CircleShape MyCircle(100.f);
-    MyCircle.setFillColor(Color::Green);
 
     while (window.isOpen())
     {

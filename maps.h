@@ -1,11 +1,13 @@
 #ifndef MAPPING_H
 #define MAPPING_H
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
 using namespace sf;
 
-float offsetX = 0, offsetY = 0;
+float offsetX = 0;
+float offsetY = 0;
 
 const int H = 12;
 const int W = 40;
