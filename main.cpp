@@ -20,6 +20,17 @@ public:
     dx = dy = 0.1;
     currentFrame = 0;
   }
+
+  void update(float time)
+    {
+            rect.left += dx * time;
+            rect.top += dy * time;
+
+            sprite.setPosition(rect.left, rect.top);
+
+            dx = 0;
+            dy = 0;
+    }
 };
 
 void menu(RenderWindow & window) {
