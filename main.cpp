@@ -109,7 +109,7 @@ int main()
     if (Keyboard::isKeyPressed(Keyboard::Down))
         {
              p.dy = 0.1;
-        } 
+        }
 
     window.clear();
     window.clear(Color::White);
