@@ -24,7 +24,9 @@ public:
   void update(float time)
     {
             rect.left += dx * time;
+	    Collision(0);
             rect.top += dy * time;
+	    Collision(1);
 
             sprite.setPosition(rect.left, rect.top);
 
@@ -151,6 +153,9 @@ int main()
         }
 
     p.update(time);
+
+    offsetX = p.rect.left - 600/2;
+    offsetY = p.rect.top - 600/2;
 
     window.clear();
     window.clear(Color::White);
