@@ -26,7 +26,7 @@ public:
 
 void menu(RenderWindow & window) {
 
-	Texture menuTexture1,menuTexture2;
+	Texture menuTexture1, menuTexture2;
 	menuTexture1.loadFromFile("1.jpg");
 	menuTexture2.loadFromFile("2.jpg");
 	Sprite menu1(menuTexture1),menu2(menuTexture2);
@@ -68,11 +68,6 @@ int main()
     Text text("", font, 20);
     text.setFillColor(Color::Red);
     text.setStyle(sf::Text::Bold | sf::Text::Underlined);
-    
-    Texture t;
-    t.loadFromFile("hero.png");
-
-    PLAYER p(t);
 	
     Clock clock;
     Clock gameTimeClock;
