@@ -138,7 +138,7 @@ void menu(RenderWindow & window) {
 int main()
 {
     RandomGeneration(7);
-    RenderWindow window( VideoMode(600,600), "Test");
+    RenderWindow window( VideoMode(900,900), "Test");
     menu(window);
 
     Font font;
@@ -193,8 +193,8 @@ int main()
 
     p.update(time);
 
-    offsetX = p.rect.left - 600/2;
-    offsetY = p.rect.top - 600/2;
+    offsetX = p.rect.left - 450;
+    offsetY = p.rect.top - 300;
 
     window.clear();
     window.clear(Color::White);
