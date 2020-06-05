@@ -1,7 +1,7 @@
+#include <SFML/Graphics.hpp>
 #include "score.h"
 #include "maps.h"
 #include "time.h"
-#include <SFML/Graphics.hpp>
 #include <sstream>
 
 using namespace sf;
@@ -66,37 +66,23 @@ public:
               rect.top = i * 32 + 32;
               dy = 0;
             }
-        }
+         }
 	  if (TileMap[i][j] == 'Z') {
               TileMap[i][j] = ' ';
               score += 10;
-              std::cout << score;
+              
       }
        if (TileMap[i][j] == 'X') {
               TileMap[i][j] = ' ';
               score += 25;
-              std::cout << score;
+              
       }
         if (TileMap[i][j] == 'C') {
               TileMap[i][j] = ' ';
               score += 50;
-              std::cout << score;
+             
       }
-     /* if (TileMap[i][j] == 'Z') {
-	      TileMap[i][j] = ' ';
-	      score += 10;
-	      std::cout << score;
-      }
-       if (TileMap[i][j] == 'X') {
-              TileMap[i][j] = ' ';
-              score += 25;
-	      std::cout << score;
-      }
-        if (TileMap[i][j] == 'C') {
-              TileMap[i][j] = ' ';
-              score += 50;
-	      std::cout << score;
-      }*/
+    }
 
     }
 
