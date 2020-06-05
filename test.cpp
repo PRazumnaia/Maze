@@ -1,3 +1,4 @@
+#include "score.h"
 #include "maps.h"
 #include "time.h"
 #include <iostream>
@@ -13,6 +14,14 @@ void IntTest(int result, int expected) {
     Fail++;
     std::cout << "test ended [FAIL]\n";
   }
+}
+
+
+void Score(){
+    int result = score(10);
+    int expected = 10;
+    std::cout << "Score ";
+    IntTest(result, expected);
 }
 
 void Timer(){
@@ -53,6 +62,7 @@ void MapInitTest() {
 }
 
 int main() {
+  Score();
   Timer();
   RandomGenerationTest();
   MapInitTest();
