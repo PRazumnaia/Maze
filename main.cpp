@@ -145,12 +145,14 @@ int main()
     Clock clock;
     Clock gameTimeClock;
 
-    Texture t, aboutTexture;
+    Texture t, aboutTexture, ywTexture, goTexture;
     t.loadFromFile("hero.png");
     aboutTexture.loadFromFile("about.jpg");
+    ywTexture.loadFromFile("YW.jpg");
+    goTexture.loadFromFile("GO.jpg");
 
     PLAYER p(t);
-    Sprite about(aboutTexture);
+    Sprite about(aboutTexture), yw(ywTexture), go(goTexture);
 
     while (window.isOpen())
     {
@@ -234,6 +236,20 @@ int main()
     window.draw(p.sprite);
     window.draw(text);
     window.display();
+    if (p.count == 7)
+        {
+            window.draw(yw); 
+            window.display(); 
+            while (!Keyboard::isKeyPressed(Keyboard::Escape)); 
+            window.close();
+        }
+        if (timer(gameTime, second) == 0)
+        {
+            window.draw(go); 
+            window.display(); 
+            while (!Keyboard::isKeyPressed(Keyboard::Escape)); 
+            window.close();
+        }
   }
 
   return 0;
