@@ -1,4 +1,5 @@
 #include "maps.h"
+#include "time.h"
 #include <iostream>
 
 int Correct = 0;
@@ -12,6 +13,14 @@ void IntTest(int result, int expected) {
     Fail++;
     std::cout << "test ended [FAIL]\n";
   }
+}
+
+void Timer(){
+
+    int result = timer(50, 2);
+    int expected = 48;
+    std::cout << "Timer ";
+    IntTest(result, expected);
 }
 
 void RandomGenerationTest() {
@@ -44,6 +53,7 @@ void MapInitTest() {
 }
 
 int main() {
+  Timer();
   RandomGenerationTest();
   MapInitTest();
   std::cout << "Results: \n CORRECT: " << Correct << "\n FAIL: " << Fail << "\n";
