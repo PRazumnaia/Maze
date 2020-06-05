@@ -238,14 +238,24 @@ int main()
     window.display();
     if (p.count == 7)
         {
+            window.clear();
+            window.clear(Color::Black);
             window.draw(yw); 
+            text.setString(L"Вы собрали монеток: "+gameMoneyString.str()+L"\nНажмите Esc, чтобы выйти.");
+            text.setPosition(340, 600);
+            window.draw(text);
             window.display(); 
             while (!Keyboard::isKeyPressed(Keyboard::Escape)); 
             window.close();
         }
         if (timer(gameTime, second) == 0)
         {
+            window.clear();
+            window.clear(Color::Black);
             window.draw(go); 
+            text.setString(L"Вы успели собрать монеток: "+gameMoneyString.str()+L"\nНажмите Esc, чтобы выйти.");
+            text.setPosition(350, 600);
+            window.draw(text);
             window.display(); 
             while (!Keyboard::isKeyPressed(Keyboard::Escape)); 
             window.close();
