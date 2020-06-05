@@ -50,4 +50,13 @@ void RandomGeneration(int items) {
   }
 }
 
+void MapInit() {
+  for (int i = 0; i < H; i++)
+    for (int j = 0; j < W; j++) {
+      if ((TileMap[i][j] == 'Z') || (TileMap[i][j] == 'X') ||
+          (TileMap[i][j] == 'C'))
+        TileMap[i][j] = ' ';
+    }
+}
+
 #endif
