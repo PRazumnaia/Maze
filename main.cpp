@@ -13,7 +13,7 @@ public:
   FloatRect rect;
   Sprite sprite;
   float currentFrame;
-  int score = 0;
+  int score = 0, count = 0;
 
   PLAYER(Texture &image) {
     sprite.setTexture(image);
@@ -70,17 +70,17 @@ public:
 	  if (TileMap[i][j] == 'Z') {
               TileMap[i][j] = ' ';
               score += 10;
-              
+              count++;
       }
        if (TileMap[i][j] == 'X') {
               TileMap[i][j] = ' ';
               score += 25;
-              
+              count++;
       }
         if (TileMap[i][j] == 'C') {
               TileMap[i][j] = ' ';
               score += 50;
-             
+             count++;
       }
     }
 
@@ -207,13 +207,10 @@ int main()
 
     std::ostringstream gameTimeString;
 	gameTimeString << timer(gameTime, second);
-	text.setString(L"Время игры: "+gameTimeString.str());
-	text.setPosition(200, 200);
-
     std::ostringstream gameMoneyString;    
-	gameMoneyString << score(p.score);	
-    text.setString(L"Собрано монет: "+gameMoneyString.str());
-	text.setPosition(200, 200);
+	gameMoneyString << score(p.score);
+	text.setString(L"Время игры: "+gameTimeString.str()+L"\nСобрано монет: "+gameMoneyString.str());
+	text.setPosition(50, 50);
 
     window.draw(p.sprite);
     window.draw(text);
