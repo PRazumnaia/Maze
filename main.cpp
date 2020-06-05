@@ -97,6 +97,12 @@ public:
 	      std::cout << score;
       }*/
 
+    }
+
+
+};
+
+
 void menu(RenderWindow & window) {
 
 	Texture menuTexture1, menuTexture2;
@@ -211,9 +217,15 @@ int main()
         rectangle.setPosition(j * 32 - offsetX, i * 32 - offsetY);
         window.draw(rectangle);
       }
+
     std::ostringstream gameTimeString;
 	gameTimeString << timer(gameTime, second);
 	text.setString(L"Время игры: "+gameTimeString.str());
+	text.setPosition(200, 200);
+
+    std::ostringstream gameMoneyString;    
+	gameMoneyString << p.score;	
+    text.setString(L"Собрано монет: "+gameMoneyString.str());
 	text.setPosition(200, 200);
 
     window.draw(p.sprite);
