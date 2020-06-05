@@ -1,8 +1,8 @@
 #include "score.h"
 
-int score(int score)
+int score(int point)
 {
     int count = 0;
-    count += score;
+    count += point;
     return count;
 }
