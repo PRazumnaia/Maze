@@ -28,7 +28,7 @@ public:
             rect.top += dy * time;
 	    Collision(1);
 
-            sprite.setPosition(rect.left, rect.top);
+            sprite.setPosition(rect.left - offsetX, rect.top - offsetY);
 
             dx = 0;
             dy = 0;
@@ -71,7 +71,7 @@ void menu(RenderWindow & window) {
 	Sprite menu1(menuTexture1),menu2(menuTexture2);
 	bool isMenu = 1;
 	int menuNum = 0;
-	menu1.setPosition(780, 300);
+	menu1.setPosition(300, 300);
 	menu2.setPosition(850, 450);
 
 	while (isMenu)
@@ -81,7 +81,7 @@ void menu(RenderWindow & window) {
 		menuNum = 0;
 		window.clear(Color(129, 181, 221));
 
-		if (IntRect(780, 300, 377, 90).contains(Mouse::getPosition(window))) { menu1.setColor(Color::Blue); menuNum = 1; }
+		if (IntRect(300, 300, 377, 90).contains(Mouse::getPosition(window))) { menu1.setColor(Color::Blue); menuNum = 1; }
 		if (IntRect(850, 450, 217, 80).contains(Mouse::getPosition(window))) { menu2.setColor(Color::Blue); menuNum = 2; }
 
 		if (Mouse::isButtonPressed(Mouse::Left))
@@ -99,7 +99,7 @@ void menu(RenderWindow & window) {
 int main()
 {
     RandomGeneration(7);
-    RenderWindow window( VideoMode(1924,1080), "Test");
+    RenderWindow window( VideoMode(600,600), "Test");
     menu(window);
 
     Font font;
@@ -122,7 +122,7 @@ int main()
         float time = clock.getElapsedTime().asMicroseconds();
         second = gameTimeClock.getElapsedTime().asSeconds();
         clock.restart();
-        time = time / 800;
+        time = time / 500;
 
         Event event;
         while (window.pollEvent(event))
