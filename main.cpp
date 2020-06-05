@@ -92,33 +92,40 @@ public:
 
 void menu(RenderWindow & window) {
 
-	Texture menuTexture1, menuTexture2;
+	Texture menuTexture1, menuTexture2, menuTexture3, aboutTexture;
 	menuTexture1.loadFromFile("1.jpg");
 	menuTexture2.loadFromFile("2.jpg");
-	Sprite menu1(menuTexture1),menu2(menuTexture2);
+    menuTexture3.loadFromFile("3.jpg");
+    aboutTexture.loadFromFile("about.jpg");
+	Sprite menu1(menuTexture1),menu2(menuTexture2), menu3(menuTexture3), about(aboutTexture);
 	bool isMenu = 1;
 	int menuNum = 0;
-	menu1.setPosition(300, 300);
-	menu2.setPosition(850, 450);
-
+	menu1.setPosition(305, 200);
+	menu2.setPosition(375, 500);
+    menu3.setPosition(350, 350);
+ 
 	while (isMenu)
 	{
 		menu1.setColor(Color::White);
 		menu2.setColor(Color::White);
+        menu3.setColor(Color::White);
 		menuNum = 0;
 		window.clear(Color(129, 181, 221));
-
-		if (IntRect(300, 300, 377, 90).contains(Mouse::getPosition(window))) { menu1.setColor(Color::Blue); menuNum = 1; }
-		if (IntRect(850, 450, 217, 80).contains(Mouse::getPosition(window))) { menu2.setColor(Color::Blue); menuNum = 2; }
-
+ 
+		if (IntRect(305, 200, 377, 90).contains(Mouse::getPosition(window))) { menu1.setColor(Color::Blue); menuNum = 1; }
+		if (IntRect(375, 500, 217, 80).contains(Mouse::getPosition(window))) { menu2.setColor(Color::Blue); menuNum = 2; }
+        if (IntRect(350, 350, 280, 95).contains(Mouse::getPosition(window))) { menu3.setColor(Color::Blue); menuNum = 3; }
+ 
 		if (Mouse::isButtonPressed(Mouse::Left))
 		{
 			if (menuNum == 1) isMenu = false;
 			if (menuNum == 2)  { window.close(); isMenu = false; }
+            if (menuNum == 3)  { window.draw(about); window.display(); while (!Keyboard::isKeyPressed(Keyboard::Escape)); }
 		}
-
+ 
 		window.draw(menu1);
-		window.draw(menu2);
+		window.draw(menu2);		
+        window.draw(menu3);	
 		window.display();
 	}
 }
@@ -138,13 +145,25 @@ int main()
     Clock clock;
     Clock gameTimeClock;
 
-    Texture t;
+    Texture t, aboutTexture;
     t.loadFromFile("hero.png");
+    aboutTexture.loadFromFile("about.jpg");
 
     PLAYER p(t);
+    Sprite about(aboutTexture);
 
     while (window.isOpen())
     {
+        if (Keyboard::isKeyPressed(Keyboard::Escape))
+        {
+            window.close();
+        }
+        if (Keyboard::isKeyPressed(Keyboard::H))
+        {
+            window.draw(about); 
+            window.display(); 
+            while (!Keyboard::isKeyPressed(Keyboard::Return)); 
+        }
         int gameTime = 50, second;
         float time = clock.getElapsedTime().asMicroseconds();
         second = gameTimeClock.getElapsedTime().asSeconds();
