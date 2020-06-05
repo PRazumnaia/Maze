@@ -1,3 +1,4 @@
+#include "score.h"
 #include "maps.h"
 #include "time.h"
 #include <SFML/Graphics.hpp>
@@ -224,7 +225,7 @@ int main()
 	text.setPosition(200, 200);
 
     std::ostringstream gameMoneyString;    
-	gameMoneyString << p.score;	
+	gameMoneyString << score(p.score);	
     text.setString(L"Собрано монет: "+gameMoneyString.str());
 	text.setPosition(200, 200);
 
