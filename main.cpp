@@ -1,3 +1,4 @@
+#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include "score.h"
 #include "maps.h"
@@ -133,6 +134,8 @@ void menu(RenderWindow & window) {
 int main()
 {
     RandomGeneration(7);
+    Music LevelMusic;
+    LevelMusic.openFromFile("music/Music.ogg");
     RenderWindow window( VideoMode(900,900), "Test");
     menu(window);
 
@@ -207,6 +210,9 @@ int main()
 
     window.clear();
     window.clear(Color::White);
+
+    if (!LevelMusic.getStatus())
+	    LevelMusic.play();
 
     RectangleShape rectangle(Vector2f(32, 32));
     for (int i = 0; i < H; i++)
