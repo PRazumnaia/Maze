@@ -124,8 +124,14 @@ int main()
     Texture mon1texture;
     mon1texture.loadFromFile("mon1.png");
 
-    Sprite mon1sprite;
-    mon1sprite.setTexture(mon1texture);
+    Sprite mon2sprite;
+    mon2sprite.setTexture(mon2texture);
+
+    Texture mon2texture;
+    mon2texture.loadFromFile("mon2.png");
+
+    Sprite mon2sprite;
+    mon2sprite.setTexture(mon2texture);
 
     Texture t;
     t.loadFromFile("hero.png");
