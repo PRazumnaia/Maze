@@ -121,6 +121,12 @@ int main()
     Sprite floorsprite;
     floorsprite.setTexture(floortexture);
 
+    Texture mon1texture;
+    mon1texture.loadFromFile("mon1.png");
+
+    Sprite mon1sprite;
+    mon1sprite.setTexture(mon1texture);
+
     Texture t;
     t.loadFromFile("hero.png");
 
@@ -179,6 +185,13 @@ int main()
         }
           rectangle.setFillColor(Color::Black);
         if (TileMap[i][j] == 'Z') //монетка первого типа
+        {
+          mon1sprite.setTextureRect(IntRect(0, 0, 32, 32));
+          mon1sprite.setPosition(j*32, i*32);
+          window.draw(mon1sprite);
+
+        }
+
           rectangle.setFillColor(Color::Yellow);
         if (TileMap[i][j] == 'X') //монетка второго типа
           rectangle.setFillColor(Color::Green);
