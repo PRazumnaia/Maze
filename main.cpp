@@ -109,35 +109,11 @@ int main()
     Clock clock;
     Clock gameTimeClock;
 
-    Texture walltexture;
-    walltexture.loadFromFile("wall.png");
+    Texture setexture;
+    setexture.loadFromFile("set.png");
 
-    Sprite wallsprite;
-    wallsprite.setTexture(walltexture);
-
-    Texture floortexture;
-    floortexture.loadFromFile("floor.png");
-
-    Sprite floorsprite;
-    floorsprite.setTexture(floortexture);
-
-    Texture mon1texture;
-    mon1texture.loadFromFile("mon1.png");
-
-    Sprite mon2sprite;
-    mon2sprite.setTexture(mon2texture);
-
-    Texture mon2texture;
-    mon2texture.loadFromFile("mon2.png");
-
-    Sprite mon2sprite;
-    mon2sprite.setTexture(mon2texture);
-
-    Texture mon3texture;
-    mon3texture.loadFromFile("mon3.png");
-
-    Sprite mon3sprite;
-    mon3sprite.setTexture(mon3texture);
+    Sprite sesprite;
+    sesprite.setTexture(setexture);
 
     Texture t;
     t.loadFromFile("hero.png");
@@ -190,44 +166,27 @@ int main()
       for (int j = 0; j < W; j++) {
         if (TileMap[i][j] == 'B') //стена
         {
-          wallsprite.setTextureRect(IntRect(0, 0, 32, 32));
-          wallsprite.setPosition(j*32, i*32);
-          window.draw(wallsprite);
-
+          sesprite.setTextureRect(IntRect(32, 0, 32, 32));
         }
-          rectangle.setFillColor(Color::Black);
         if (TileMap[i][j] == 'Z') //монетка первого типа
         {
-          mon1sprite.setTextureRect(IntRect(0, 0, 32, 32));
-          mon1sprite.setPosition(j*32, i*32);
-          window.draw(mon1sprite);
-
+          sesprite.setTextureRect(IntRect(0, 64, 32, 32));
         }
         if (TileMap[i][j] == 'X') //монетка второго типа
         {
-          mon2sprite.setTextureRect(IntRect(0, 0, 32, 32));
-          mon2sprite.setPosition(j*32, i*32);
-          window.draw(mon2sprite);
-
+          sesprite.setTextureRect(IntRect(0, 32, 32, 32));
         }
         if (TileMap[i][j] == 'C') //монетка третьего типа
         {
-          mon3sprite.setTextureRect(IntRect(0, 0, 32, 32));
-          mon3sprite.setPosition(j*32, i*32);
-          window.draw(mon3sprite);
-
+          sesprite.setTextureRect(IntRect(96, 0, 32, 32));
         }
-        if (TileMap[i][j] == ' ')
+        if (TileMap[i][j] == ' ') //пол
         {
-          floorsprite.setTextureRect(IntRect(0, 0, 32, 32));
-          floorsprite.setPosition(j*32, i*32);
-          window.draw(floorsprite);
-
+          sesprite.setTextureRect(IntRect(0, 0, 32, 32));
         }
 
-
-        rectangle.setPosition(j * 32 - offsetX, i * 32 - offsetY);
-        window.draw(rectangle);
+        sesprite.setPosition(j*32, i*32);
+        window.draw(sesprite);
       }
     std::ostringstream gameTimeString;
 	gameTimeString << timer(gameTime, second);
