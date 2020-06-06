@@ -115,6 +115,12 @@ int main()
     Sprite wallsprite;
     wallsprite.setTexture(walltexture);
 
+    Texture floortexture;
+    floortexture.loadFromFile("floor.png");
+
+    Sprite floorsprite;
+    floorsprite.setTexture(floortexture);
+
     Texture t;
     t.loadFromFile("hero.png");
 
@@ -179,7 +185,13 @@ int main()
         if (TileMap[i][j] == 'C') //монетка третьего типа
           rectangle.setFillColor(Color::Blue);
         if (TileMap[i][j] == ' ')
-          continue;
+        {
+          floorsprite.setTextureRect(IntRect(0, 0, 32, 32));
+          floorsprite.setPosition(j*32, i*32);
+          window.draw(floorsprite);
+
+        }
+
 
         rectangle.setPosition(j * 32 - offsetX, i * 32 - offsetY);
         window.draw(rectangle);
