@@ -244,7 +244,8 @@ int main()
     window.display();
     if (p.count == 7)
         {
-            window.clear();
+            LevelMusic.stop();
+	    window.clear();
             window.clear(Color::Black);
             window.draw(yw); 
             text.setString(L"Вы собрали монеток: "+gameMoneyString.str()+L"\nНажмите Esc, чтобы выйти.");
@@ -256,6 +257,7 @@ int main()
         }
         if (timer(gameTime, second) == 0)
         {
+	    LevelMusic.stop();
             window.clear();
             window.clear(Color::Black);
             window.draw(go); 
