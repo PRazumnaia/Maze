@@ -1,7 +1,23 @@
-all:
-	g++ -c main.cpp -I Maze
-	g++ -c time.cpp
-	g++ -c score.cpp
-	g++ -c test.cpp -I Maze
-	g++ main.o time.o score.o -o maze -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -I Maze
-	g++ test.o time.o score.o -o test -lsfml-graphics -lsfml-window -lsfml-system -I Maze
+CC = g++
+CFLAGS = -c -Wall
+MSOUR = time.cpp score.cpp main.cpp
+TSOUR = time.cpp score.cpp test.cpp
+MOBJ = $(MSOUR:.cpp=.o)
+TOBJ = $(TSOUR:.cpp=.o)
+EXE = maze
+TEST = test
+SFML = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+HEADERS = -I Maze
+
+all: $(EXE) $(TEST)
+
+$(EXE): $(MOBJ)
+	$(CC) $(MOBJ) -o $(EXE) $(SFML) $(HEADERS)
+
+.cpp.o:
+	$(CC) $(CFLAGS) $< -o $@ $(HEADERS)
+
+
+
+$(TEST): $(TOBJ)
+	$(CC) $(TOBJ) -o $(TEST) $(SFML) $(HEADERS)
