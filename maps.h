@@ -9,24 +9,50 @@ using namespace sf;
 float offsetX = 0;
 float offsetY = 0;
 
-const int H = 12;
-const int W = 40;
+const int H = 39;
+const int W = 44;
 
 String TileMap[H] = {
 
-    "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-    "B          B                      B    B",
-    "B          B                           B",
-    "BBBBBBB    B                           B",
-    "B          BBBBBBBB    BBBB            B",
-    "B          B           B  B            B",
-    "B   BBBBBBBB           B  B            B",
-    "B                      BBBB            B",
-    "B                                      B",
-    "B          BBBBBB                      B",
-    "B          B                           B",
-    "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-
+    "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+    "B       B  B   B    B             B        B",
+    "B          B   B  B B  BBB   BBBBBBBBBBB B B",
+    "BBBBBBB    B      B B  B                 B B",
+    "B       BBBBBBBBBBB    B   BBBBBBBB      B B",
+    "B          B      BBBBBB   B      BBBBBBBB B",
+    "B   BBBBBBBB               B  B            B",
+    "B     B         B     BBBBBBBBBBBBBBBB     B",
+    "B     B B   B   B   B      B            BBBB",
+    "BBB   BBB  BBBBBB   B  B   B     BB   B    B",
+    "B          B        B  B          B  BB    B",
+    "BBBBBBBBBBBBBBBBBBBBBBBB   BBBBBBBBBBBBB  BB",
+    "B       B    B    B                  B     B",
+    "B   B B           B    BB    BB      B     B",
+    "B     B      B    BB   BB    BB      B BBBBB",
+    "B   B B    BBB                       B     B",
+    "BBBBBBB  BBB      BB       B         B  BBBB",
+    "B          BBBBBBBB    BBBBBBBBBBBBBBB     B",
+    "B   B B    B      B        B      B  B  B  B",
+    "B   BBBBBBBBBBB BBB    BBBBB            BBBB",
+    "B     B B  B               BBBBBBBB     B  B",
+    "B     B    B  B BBBBB      B           BB  B",
+    "BBB   BBB  BBBBBB          B      B     B  B",
+    "B          B        B B    B      B        B",
+    "BBBBBB  BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB BB",
+    "B    B  B        B  B                 B    B",
+    "B  B B           B BB  BBBBBBBBBBBBB  B BBBB",
+    "B  B B     B     B     B     B    B        B",
+    "B  B     BBB   BBB B BBB     B   BBBBBBB BBB",
+    "BBBBBBB    B       B       B          B    B",
+    "B       B  BBBBBBBBBBBB    BBB  BBBBBBB BBBB",
+    "B       B  B  B       BBB BB      B        B",
+    "B   BBBBBBBB  B  B B  B    B  B            B",
+    "B     B       B  BBBBBB  BBBBBBBBBBBBBBBBBBB",
+    "B     B  BBB                  B   B   B    B",
+    "BBB   B    BBBBBB     B    B  B BBB B   B  B",
+    "B        B B    BBBBBBB BBBB    B BBBBBBB BB",
+    "B     B  B B BB         B     B            B",
+    "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
 };
 
 //Случайная генерация предметов
