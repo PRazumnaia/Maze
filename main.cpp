@@ -130,7 +130,7 @@ void menu(RenderWindow & window) {
 
 int main()
 {
-    RandomGeneration(7);
+    RandomGeneration(40);
     Music LevelMusic;
     LevelMusic.openFromFile("music/Music.ogg");
     RenderWindow window( VideoMode(900,900), "Test");
@@ -170,7 +170,7 @@ int main()
             window.display();
             while (!Keyboard::isKeyPressed(Keyboard::Return));
         }
-        int gameTime = 50, second;
+        int gameTime = 60, second;
         float time = clock.getElapsedTime().asMicroseconds();
         second = gameTimeClock.getElapsedTime().asSeconds();
         clock.restart();
@@ -210,7 +210,7 @@ int main()
     offsetY = p.rect.top - 300;
 
     window.clear();
-    window.clear(Color::White);
+    window.clear(Color::Black);
 
     if (!LevelMusic.getStatus())
 	    LevelMusic.play();
@@ -254,7 +254,7 @@ int main()
     window.draw(p.sprite);
     window.draw(text);
     window.display();
-    if (p.count == 7)
+    if (p.count == 40)
         {
             LevelMusic.stop();
 	    window.clear();
