@@ -224,7 +224,7 @@ int main()
         }
         if (TileMap[i][j] == 'Z') //монетка первого типа
         {
-          sesprite.setTextureRect(IntRect(0, 64, 32, 32));
+          sesprite.setTextureRect(IntRect(64, 0, 32, 32));
         }
         if (TileMap[i][j] == 'X') //монетка второго типа
         {
