@@ -158,19 +158,10 @@ int main()
     Sprite sesprite;
     sesprite.setTexture(setexture);
 
+    int gameTime = 60, second;
+
     while (window.isOpen())
     {
-        if (Keyboard::isKeyPressed(Keyboard::Escape))
-        {
-            window.close();
-        }
-        if (Keyboard::isKeyPressed(Keyboard::H))
-        {
-            window.draw(about);
-            window.display();
-            while (!Keyboard::isKeyPressed(Keyboard::Return));
-        }
-        int gameTime = 60, second;
         float time = clock.getElapsedTime().asMicroseconds();
         second = gameTimeClock.getElapsedTime().asSeconds();
         clock.restart();
@@ -241,8 +232,6 @@ int main()
 
         sesprite.setPosition(j*32 - offsetX, i*32 - offsetY);
         window.draw(sesprite);
-        //rectangle.setPosition(j * 32 - offsetX, i * 32 - offsetY);
-        //window.draw(rectangle);
       }
     std::ostringstream gameTimeString;
 	gameTimeString << timer(gameTime, second);
@@ -254,6 +243,21 @@ int main()
     window.draw(p.sprite);
     window.draw(text);
     window.display();
+
+    if (Keyboard::isKeyPressed(Keyboard::Escape))
+        {
+            window.close();
+        }
+    if (Keyboard::isKeyPressed(Keyboard::H))
+    {
+            window.draw(about);
+            window.display();
+            while (!Keyboard::isKeyPressed(Keyboard::Return))
+            {
+                gameTimeClock.restart();
+            }
+            gameTime = timer(gameTime, second);
+    }
     if (p.count == 40)
         {
             LevelMusic.stop();
