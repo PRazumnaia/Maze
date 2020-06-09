@@ -7,4 +7,3 @@ int timer(int gameTime, int clock)
     gameTime -= clock;
     return gameTime;
 }
-
