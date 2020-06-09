@@ -5,11 +5,13 @@ os:
 
 compiler:
    - gcc
-   - clang
 
 env:
    - TARGET_CPU=amd64
    - TARGET_CPU=x86
+
+before_script:
+  - sudo apt-get install libsfml-dev
 
 script:
   - git ls-files src/ | xargs clang-format -i && git diff --exit-code
