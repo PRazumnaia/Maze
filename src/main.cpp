@@ -162,7 +162,7 @@ int main()
     RandomGeneration(40);
     Music LevelMusic;
     LevelMusic.openFromFile(path + "music/Music.ogg");
-    RenderWindow window(VideoMode(900, 900), "Test");
+    RenderWindow window(VideoMode(900, 900), "Maze");
     menu(window, path);
 
     Font font;
