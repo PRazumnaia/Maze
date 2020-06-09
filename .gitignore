@@ -1,2 +1,4 @@
-*.[ao]
-maze
+build/src/*.[ao]
+build/test/*.[ao]
+bin/maze
+bin/test

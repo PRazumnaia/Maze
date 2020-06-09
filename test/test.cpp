@@ -1,6 +1,6 @@
-#include "score.h"
-#include "maps.h"
-#include "time.h"
+#include "../src/maps.h"
+#include "../src/score.h"
+#include "../src/time.h"
 #include <iostream>
 
 int Correct = 0;

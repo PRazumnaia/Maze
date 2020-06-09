@@ -91,10 +91,10 @@ public:
 void menu(RenderWindow & window) {
 
 	Texture menuTexture1, menuTexture2, menuTexture3, aboutTexture;
-	menuTexture1.loadFromFile("1.jpg");
-	menuTexture2.loadFromFile("2.jpg");
-    menuTexture3.loadFromFile("3.jpg");
-    aboutTexture.loadFromFile("about.jpg");
+	menuTexture1.loadFromFile("images/1.jpg");
+	menuTexture2.loadFromFile("images/2.jpg");
+    menuTexture3.loadFromFile("images/3.jpg");
+    aboutTexture.loadFromFile("images/about.jpg");
 	Sprite menu1(menuTexture1),menu2(menuTexture2), menu3(menuTexture3), about(aboutTexture);
 	bool isMenu = 1;
 	int menuNum = 0;
@@ -146,11 +146,11 @@ int main()
     Clock gameTimeClock;
 
     Texture t, aboutTexture, ywTexture, goTexture, setexture;
-    t.loadFromFile("hero.png");
-    setexture.loadFromFile("set.png");
-    aboutTexture.loadFromFile("about.jpg");
-    ywTexture.loadFromFile("YW.jpg");
-    goTexture.loadFromFile("GO.jpg");
+    t.loadFromFile("images/hero.png");
+    setexture.loadFromFile("images/set.png");
+    aboutTexture.loadFromFile("images/about.jpg");
+    ywTexture.loadFromFile("images/YW.jpg");
+    goTexture.loadFromFile("images/GO.jpg");
 
     PLAYER p(t);
 
