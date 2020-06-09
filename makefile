@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -c -Wall -Werror
+CFLAGS = -c -Wall -std=c++11
 MSOUR = time.cpp score.cpp main.cpp
 TSOUR = time.cpp score.cpp test.cpp
 TBUILDDIR = build/test/
