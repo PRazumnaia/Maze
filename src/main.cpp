@@ -4,6 +4,8 @@
 #include "maps.h"
 #include "time.h"
 #include <sstream>
+#include <string>
+#include <unistd.h>
 
 using namespace sf;
 
@@ -88,13 +90,13 @@ public:
     }
 };
 
-void menu(RenderWindow & window) {
+void menu(RenderWindow & window, std::string path) {
 
 	Texture menuTexture1, menuTexture2, menuTexture3, aboutTexture;
-	menuTexture1.loadFromFile("images/1.jpg");
-	menuTexture2.loadFromFile("images/2.jpg");
-    menuTexture3.loadFromFile("images/3.jpg");
-    aboutTexture.loadFromFile("images/about.jpg");
+	menuTexture1.loadFromFile(path + "images/1.jpg");
+	menuTexture2.loadFromFile(path + "images/2.jpg");
+    menuTexture3.loadFromFile(path + "images/3.jpg");
+    aboutTexture.loadFromFile(path + "images/about.jpg");
 	Sprite menu1(menuTexture1),menu2(menuTexture2), menu3(menuTexture3), about(aboutTexture);
 	bool isMenu = 1;
 	int menuNum = 0;
@@ -130,14 +132,20 @@ void menu(RenderWindow & window) {
 
 int main()
 {
+    std::string path;
+    path.resize(1024);
+    auto ret = readlink("/proc/self/exe", &path[0], path.size());
+    path.resize(ret);
+    for (int i = 0; i < 8; i++)
+	    path.pop_back();
     RandomGeneration(40);
     Music LevelMusic;
-    LevelMusic.openFromFile("music/Music.ogg");
+    LevelMusic.openFromFile(path + "music/Music.ogg");
     RenderWindow window( VideoMode(900,900), "Test");
-    menu(window);
+    menu(window, path);
 
     Font font;
-    font.loadFromFile("CyrilicOld.TTF");
+    font.loadFromFile(path + "CyrilicOld.TTF");
     Text text("", font, 20);
     text.setFillColor(Color::Red);
     text.setStyle(sf::Text::Bold | sf::Text::Underlined);
@@ -146,11 +154,11 @@ int main()
     Clock gameTimeClock;
 
     Texture t, aboutTexture, ywTexture, goTexture, setexture;
-    t.loadFromFile("images/hero.png");
-    setexture.loadFromFile("images/set.png");
-    aboutTexture.loadFromFile("images/about.jpg");
-    ywTexture.loadFromFile("images/YW.jpg");
-    goTexture.loadFromFile("images/GO.jpg");
+    t.loadFromFile(path + "images/hero.png");
+    setexture.loadFromFile(path + "images/set.png");
+    aboutTexture.loadFromFile(path + "images/about.jpg");
+    ywTexture.loadFromFile(path + "images/YW.jpg");
+    goTexture.loadFromFile(path + "images/GO.jpg");
 
     PLAYER p(t);
 
